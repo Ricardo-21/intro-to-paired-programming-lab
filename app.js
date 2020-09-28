@@ -14,7 +14,10 @@ function letterCount(name){
 }
 
 function greetPeople(names){
-
+  for(let i = 0; i < names.length; i++){
+    sayHello(names[i]);
+    letterCount(names[i]);
+  }
 }
 
 function speakingGrandma(phrase){
@@ -30,6 +33,9 @@ function kebabToTitleCase(filenames){
 sayHello("Olivia"); //Hello, Olivia
 letterCount("tom"); //Tom, your name has 3 letters. That name's not that long!
 letterCount("national") //National, your name has 8 letters. That's a pretty long name.
+greetPeople(['Olivia','Ann','Ricardo']); // Hello, Olivia //Olivia, your name has 6 letters. That's a pretty long name!
+
+
 //do not editing anything below this comment.
 module.exports = {
   sayHello,
