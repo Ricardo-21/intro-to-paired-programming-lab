@@ -30,7 +30,26 @@ function speakingGrandma(phrase){
 
 
 function kebabToTitleCase(filenames){
-
+  //console.log(filenames);
+  let better = [];
+  let fileJoined = filenames.join();
+  //console.log(fileJoined.length);
+  for(let i = 0; i < fileJoined.length; i++){
+    if(fileJoined[i] === "-"){
+      let hyphen = fileJoined.charAt(i+1).toUpperCase();
+      fileJoined = fileJoined.slice(0,i) + hyphen + fileJoined.slice(i+2,fileJoined.length);
+      //console.log(fileJoined);
+    }
+    if (fileJoined[i] === ","){
+      let cap = fileJoined.charAt(i+1).toUpperCase();
+      fileJoined = fileJoined.slice(0,i) +" "+ cap + fileJoined.slice(i+2,fileJoined.length);
+      //console.log(fileJoined);
+    }
+    //console.log(i);
+  
+    better = fileJoined.split(' ');
+  }
+  console.log(better);
 }
 
 //Write your test cases below this comment
@@ -40,6 +59,7 @@ letterCount("national") //National, your name has 8 letters. That's a pretty lon
 greetPeople(['Olivia','Ann','Ricardo']); // Hello, Olivia //Olivia, your name has 6 letters. That's a pretty long name!
 speakingGrandma('HELLO!'); // NO, NOT SINCE 1938!
 speakingGrandma('hello!')// HUH? SPEAK UP, DEAR!
+kebabToTitleCase(['Work-stuffs.txt','important-bank-info.png','spicy-stuff.png','big-list.txt','homework.png','recipe-book.txt']); //['WorkStuffs.txt','ImportantBankInfo.png']
 
 //do not editing anything below this comment.
 module.exports = {
